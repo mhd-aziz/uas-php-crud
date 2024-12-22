@@ -2,6 +2,7 @@
 // user/user_dashboard.php
 require '../includes/header.php';
 require '../includes/auth_user.php';
+
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
@@ -55,7 +56,7 @@ $bookmark_stmt->execute([$user_id]);
 $bookmarked_books = $bookmark_stmt->fetchAll(PDO::FETCH_COLUMN);
 ?>
 
-<div class="container mt-4 dashboard-container">
+<div class="container mt-4 dashboard-container" id="dashboard">
     <div class="dashboard-header d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center mb-4 gap-3">
         <h2>Dashboard User</h2>
         <div class="d-flex flex-wrap gap-2">
@@ -127,7 +128,7 @@ $bookmarked_books = $bookmark_stmt->fetchAll(PDO::FETCH_COLUMN);
                             <td class="text-center align-middle"><?= ($offset + $index + 1); ?></td>
                             <td class="text-center align-middle">
                                 <?php if ($book['cover_image'] && file_exists('../uploads/cover_images/' . $book['cover_image'])): ?>
-                                    <img src="<?= htmlspecialchars($base_url) ?>/uploads/cover_images/<?= htmlspecialchars($book['cover_image']) ?>" alt="Cover" class="img-thumbnail" style="max-width: 100px;">
+                                    <img src="<?= htmlspecialchars($base_url) ?>/uploads/cover_images/<?= htmlspecialchars($book['cover_image']) ?>" alt="Cover" class="img-thumbnail">
                                 <?php else: ?>
                                     <i class="bi bi-book-fill text-muted" style="font-size: 1.5rem;"></i>
                                 <?php endif; ?>
@@ -214,4 +215,6 @@ $bookmarked_books = $bookmark_stmt->fetchAll(PDO::FETCH_COLUMN);
     <?php endif; ?>
 </div>
 
+<?php include '../includes/about_us.php'; ?>
+<?php include '../includes/contact.php'; ?>
 <?php include '../includes/footer.php'; ?>

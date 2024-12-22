@@ -1,9 +1,33 @@
 /* assets/css/dashboard.css */
 
-/* Styling Dashboard Admin */
 .dashboard-header h2 {
   font-weight: 600;
   color: var(--primary-color);
+  flex: 1; 
+  text-align: center; 
+}
+
+.dashboard-header {
+  display: flex;
+  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (min-width: 576px) {
+  .dashboard-header {
+    justify-content: space-between; 
+  }
+
+  .dashboard-header h2 {
+    flex: 0 0 auto; 
+  }
+
+  .dashboard-header .d-flex {
+    flex: 0 0 auto;/
+  }
 }
 
 .btn-success,
@@ -93,6 +117,107 @@
   opacity: 0.9;
 }
 
+#about-us h2,
+#about-us h3 {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+#about-us .card {
+  border: none;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#about-us .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+#about-us .card-body img {
+  border: 3px solid var(--primary-color);
+  padding: 5px;
+  background-color: #fff;
+}
+
+#about-us .card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+#about-us .card-text {
+  font-size: 1rem;
+  color: #555555;
+  line-height: 1.6;
+}
+
+#contact {
+  background-color: #ffffff; 
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+#contact h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#contact p {
+  font-size: 1.1rem;
+  color: #555555;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#contact .contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#contact .form-label {
+  font-weight: 500;
+  color: #333333;
+}
+
+#contact .form-control {
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  transition: border-color 0.3s ease;
+}
+
+#contact .form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: none;
+}
+
+#contact .btn-primary {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#contact .btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.section-fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (max-width: 576px) {
   .btn-responsive {
     padding: 0.25rem 0.5rem;
@@ -100,6 +225,25 @@
   }
   .btn-responsive i {
     font-size: 1rem;
+  }
+
+  #about-us h2,
+  #contact h2 {
+    font-size: 1.5rem;
+  }
+
+  #about-us p,
+  #contact p {
+    font-size: 1rem;
+  }
+
+  #contact .contact-form {
+    padding: 0 15px;
+  }
+
+  .dashboard-header h2 {
+    text-align: center;
+    width: 100%;
   }
 }
 
@@ -111,6 +255,25 @@
   .btn-responsive i {
     font-size: 1.1rem;
   }
+
+  #about-us h2,
+  #contact h2 {
+    font-size: 1.75rem;
+  }
+
+  #about-us p,
+  #contact p {
+    font-size: 1.05rem;
+  }
+
+  #contact .contact-form {
+    padding: 0 20px;
+  }
+
+  .dashboard-header h2 {
+    text-align: center;
+    width: 100%;
+  }
 }
 
 @media (min-width: 769px) {
@@ -121,52 +284,44 @@
   .btn-responsive i {
     font-size: 1.2rem;
   }
-}
 
-@media (max-width: 576px) {
-  .btn-responsive {
+  #about-us h2,
+  #contact h2 {
+    font-size: 2rem;
+  }
+
+  #about-us p,
+  #contact p {
+    font-size: 1.2rem;
+  }
+
+  #contact .contact-form {
+    padding: 0 25px;
+  }
+
+  #hero.hero-section {
+    min-height: 400px;
+  }
+
+  #hero .overlay-text h1 {
+    font-size: 3rem;
+  }
+
+  #hero .overlay-text p {
+    font-size: 1.5rem;
+  }
+
+  .dashboard-header {
+    justify-content: space-between;
+  }
+
+  .dashboard-header h2 {
+    flex: 0 0 auto; 
+    text-align: center;
     width: auto;
   }
-  .table-custom thead th {
-    color: #ffffff;
-    vertical-align: middle;
-  }
-  .table-custom td {
-    padding: 0.3rem;
-    font-size: 0.85rem;
-    text-align: center;
-    vertical-align: middle;
-  }
-}
 
-@media (min-width: 577px) and (max-width: 768px) {
-  .btn-responsive {
-    width: auto;
-  }
-  .table-custom thead th {
-    color: #ffffff;
-    vertical-align: middle;
-  }
-  .table-custom td {
-    padding: 0.5rem;
-    font-size: 0.95rem;
-    text-align: center;
-    vertical-align: middle;
-  }
-}
-
-@media (min-width: 769px) {
-  .btn-responsive {
-    width: auto;
-  }
-  .table-custom thead th {
-    color: #ffffff; /* Putih */
-    vertical-align: middle; /* Vertikal tengah */
-  }
-  .table-custom td {
-    padding: 0.75rem;
-    font-size: 1rem;
-    text-align: center;
-    vertical-align: middle;
+  .dashboard-header .d-flex {
+    flex: 0 0 auto;
   }
 }

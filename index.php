@@ -1,6 +1,7 @@
 <?php
 // index.php
-require_once 'includes/header.php';
+
+session_start();
 if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
     header('Location: admin/admin_dashboard.php');
     exit;

@@ -2,22 +2,15 @@
 </main>
 <footer class="footer bg-primary text-white py-4 mt-5">
     <div class="container">
-        <div class="row g-3">
-            <div class="col-md-6 mb-3 mb-md-0">
+        <div class="row">
+            <div class="col-12 text-center">
                 <span>&copy; <?php echo date("Y"); ?> Direktori Buku. All rights reserved.</span>
             </div>
-            <div class="col-md-6 text-center text-md-end">
-                <a href="<?= $base_url ?>/about.php" class="text-white me-3">About Us</a>
-                <a href="<?= $base_url ?>/contact.php" class="text-white me-3">Contact</a>
-                <a href="<?= $base_url ?>/privacy.php" class="text-white">Privacy Policy</a>
-            </div>
         </div>
-        <div class="row mt-4">
-            <div class="col text-center">
-                <a href="#" class="text-white me-3" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="text-white me-3" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="text-white me-3" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="text-white" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <div class="row mt-3">
+            <div class="col-12 text-end">
+                <a href="#about-us" class="text-white me-3">About Us</a>
+                <a href="#contact" class="text-white">Contact</a>
             </div>
         </div>
     </div>
@@ -32,11 +25,49 @@
             document.body.classList.remove('scrolled');
         }
     });
-
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl)
     })
+    document.addEventListener('DOMContentLoaded', function() {
+        const notificationButton = document.getElementById('notificationButton');
+        const notificationBox = document.getElementById('notificationBox');
+        notificationButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            notificationBox.classList.toggle('show');
+        });
+        document.addEventListener('click', function(e) {
+            if (!notificationButton.contains(e.target) && !notificationBox.contains(e.target)) {
+                notificationBox.classList.remove('show');
+            }
+        });
+        window.addEventListener('resize', function() {
+            notificationBox.classList.remove('show');
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+        const faders = document.querySelectorAll('.section-fade-in');
+
+        const appearOptions = {
+            threshold: 0.2,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('visible');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    });
 </script>
 </body>
 
