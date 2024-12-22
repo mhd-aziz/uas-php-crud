@@ -1,0 +1,74 @@
+/* assets/css/footer.css */
+
+:root {
+  --footer-background: var(--primary-color);
+  --footer-text-color: #ffffff;
+  --footer-link-hover-color: #d4d4d4;
+  --footer-icon-hover-color: #ffc107;
+}
+
+.footer {
+  background-color: var(--footer-background) !important;
+  color: var(--footer-text-color);
+}
+
+.footer a {
+  color: var(--footer-text-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: var(--footer-link-hover-color);
+  text-decoration: none;
+}
+
+.footer .bi {
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.footer .bi:hover {
+  color: var(--footer-icon-hover-color);
+}
+
+.footer .row {
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .footer .row {
+    text-align: center;
+  }
+
+  .footer .col-md-6 {
+    margin-bottom: 1rem;
+  }
+  .footer {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer span {
+    font-size: 0.75rem;
+  }
+
+  .footer a {
+    font-size: 0.75rem;
+  }
+
+  .footer .bi {
+    font-size: 1rem;
+  }
+
+  .footer .row.mt-4 .col a {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}

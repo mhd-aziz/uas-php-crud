@@ -1,0 +1,93 @@
+/* assets/css/style.css */
+
+/* Reset CSS */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #007bff, #f0f4f8);
+}
+
+.card-container {
+  background-color: #fff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-container .logo img {
+  width: 70px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.card-container h3 {
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.form-control-custom {
+  border-radius: 30px;
+  padding: 15px 20px;
+  border: 1px solid #ccc;
+  width: 100%;
+  display: flex;
+  margin-bottom: 20px;
+  max-width: 400px;
+}
+
+.form-control-custom:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.btn-custom {
+  background-color: #007bff;
+  border: none;
+  border-radius: 30px;
+  padding: 15px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-custom:hover {
+  background-color: #0056b3;
+}
+
+.alert-custom {
+  border-radius: 10px;
+  font-size: 0.9rem;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.spacer {
+  width: 100%;
+}
+
+.register-link {
+  margin-top: 10px;
+}
